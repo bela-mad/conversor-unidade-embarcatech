@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-float converter_volume(float valor, char unidade_inicial, char unidade_final);
+float conversor_volume(float valor, char unidade_inicial, char unidade_final);
 
 const char* obter_nome_unidade(char unidade);
 
@@ -17,7 +17,7 @@ int main() {
     printf("Digite a unidade final: ");
     scanf(" %c", &unidade_final);
 
-    resultado = converter_volume(valor, unidade_inicial, unidade_final);
+    resultado = conversor_volume(valor, unidade_inicial, unidade_final);
 
     if (resultado >= 0) {
         printf("%.2f %s equivale a %.6f %s\n", 
@@ -30,7 +30,7 @@ int main() {
     return 0;
 }
 
-float converter_volume(float valor, char unidade_inicial, char unidade_final) {
+float conversor_volume(float valor, char unidade_inicial, char unidade_final) {
     if (unidade_inicial == 'l' && unidade_final == 'm') {
         return valor * 1000; // Litros para mililitros
     } else if (unidade_inicial == 'l' && unidade_final == 'M') {
