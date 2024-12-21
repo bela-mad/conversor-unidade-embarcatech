@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "funcoes.h"
 
 int submenu(const char *unidade1, const char *unidade2, const char *unidade3, const char *unidade4, const char *unidade5, const char *unidade6) {
     int opcao;
@@ -21,7 +22,11 @@ int submenu(const char *unidade1, const char *unidade2, const char *unidade3, co
     return opcao;
 }
 
-void executar_submenu(const char *nome_categoria, const char *unidade1, const char *unidade2, const char *unidade3, const char *unidade4, const char *unidade5, const char *unidade6) {
+void executar_submenu(const char *nome_categoria, 
+                      const char *unidade1, const char *unidade2, 
+                      const char *unidade3, const char *unidade4, 
+                      const char *unidade5, const char *unidade6, 
+                      float (*converter)(float valor, int origem, int destino)) {
     int origem, destino;
     float valor, resultado;
 
@@ -48,7 +53,8 @@ void executar_submenu(const char *nome_categoria, const char *unidade1, const ch
         return;
     }
 
-    resultado = 0; // Lógica de conversão será implementada
+    // Chama a função de conversão fornecida
+    resultado = converter(valor, origem, destino);
 
     printf("Resultado: %.2f %s\n", resultado, 
            destino == 1 ? unidade1 : 
@@ -57,6 +63,7 @@ void executar_submenu(const char *nome_categoria, const char *unidade1, const ch
            (destino == 4 ? unidade4 : 
            (destino == 5 ? unidade5 : unidade6)))));
 }
+
 
 void exibir_interface() {
     system("cls");
@@ -76,6 +83,10 @@ void exibir_interface() {
     puts("------------------------------");
 }
 
+float temp (float valor, int unidade_inicial, int unidade_final){
+    return 0;
+}
+
 int executar_menu() {
     int opcao;
     char continuar;
@@ -86,31 +97,31 @@ int executar_menu() {
 
     switch (opcao) {
         case 1:
-            executar_submenu("Unidades de Comprimento", "Metro", "Centimetro", "Milimetro", NULL, NULL, NULL);
+            executar_submenu("Unidades de Comprimento", "Metro", "Centimetro", "Milimetro", NULL, NULL, NULL, temp);
             break;
         case 2:
-            executar_submenu("Unidades de Massa", "Quilograma", "Grama", "Miligrama", NULL, NULL, NULL);
+            executar_submenu("Unidades de Massa", "Quilograma", "Grama", "Miligrama", NULL, NULL, NULL, temp);
             break;
         case 3:
-            executar_submenu("Unidades de Volume", "Litro", "Mililitro", "Metros cubicos", NULL, NULL, NULL);
+            executar_submenu("Unidades de Volume", "Litro", "Mililitro", "Metros cubicos", NULL, NULL, NULL, conversor_volume);
             break;
         case 4:
-            executar_submenu("Unidades de Temperatura", "Celsius", "Fahrenheit", "Kelvin", NULL, NULL, NULL);
+            executar_submenu("Unidades de Temperatura", "Celsius", "Fahrenheit", "Kelvin", NULL, NULL, NULL, temp);
             break;
         case 5:
-            executar_submenu("Unidades de Velocidade", "km/h", "m/s", "mph", NULL, NULL, NULL);
+            executar_submenu("Unidades de Velocidade", "km/h", "m/s", "mph", NULL, NULL, NULL, temp);
             break;
         case 6:
-            executar_submenu("Unidades de Potencia", "Watts", "Quilowatts", "Cavalos-vapor", NULL, NULL, NULL);
+            executar_submenu("Unidades de Potencia", "Watts", "Quilowatts", "Cavalos-vapor", NULL, NULL, NULL, temp);
             break;
         case 7:
-            executar_submenu("Unidades de Area", "Metro quadrado", "Centimetro quadrado", "Milimetro quadrado", NULL, NULL, NULL);
+            executar_submenu("Unidades de Area", "Metro quadrado", "Centimetro quadrado", "Milimetro quadrado", NULL, NULL, NULL, temp);
             break;
         case 8:
-            executar_submenu("Unidades de Tempo", "Segundos", "Minutos", "Horas", NULL, NULL, NULL);
+            executar_submenu("Unidades de Tempo", "Segundos", "Minutos", "Horas", NULL, NULL, NULL, temp);
             break;
         case 9:
-            executar_submenu("Unidades de Armazenamento", "Bits", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes");
+            executar_submenu("Unidades de Armazenamento", "Bits", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", temp);
             break;
         case 0:
             printf("Saindo... Obrigado!\n");
@@ -123,9 +134,4 @@ int executar_menu() {
     printf("Deseja continuar? (S/N): ");
     scanf(" %c", &continuar);
     return (continuar == 'S' || continuar == 's') ? 1 : 0;
-}
-
-int main() {
-    while (executar_menu());
-    return 0;
 }
