@@ -1,21 +1,24 @@
 #include <stdio.h>
 
-float conversor_volume(float valor, char unidade_inicial, char unidade_final);
-
-const char* obter_nome_unidade(char unidade);
+float conversor_volume(float valor, int unidade_inicial, int unidade_final);
+const char* obter_nome_unidade(int unidade);
 
 int main() {
     float valor, resultado;
-    char unidade_inicial, unidade_final;
+    int unidade_inicial, unidade_final;
 
     printf("Digite o valor: ");
     scanf("%f", &valor);
 
-    printf("Digite a unidade inicial (l para litro, m para mililitro, M para metro cúbico): ");
-    scanf(" %c", &unidade_inicial);
+    printf("Escolha a unidade inicial:\n");
+    printf("1 - Litros\n2 - Mililitros\n3 - Metros cúbicos\n");
+    printf("Sua escolha: ");
+    scanf("%d", &unidade_inicial);
 
-    printf("Digite a unidade final: ");
-    scanf(" %c", &unidade_final);
+    printf("Escolha a unidade final:\n");
+    printf("1 - Litros\n2 - Mililitros\n3 - Metros cúbicos\n");
+    printf("Sua escolha: ");
+    scanf("%d", &unidade_final);
 
     resultado = conversor_volume(valor, unidade_inicial, unidade_final);
 
@@ -30,16 +33,16 @@ int main() {
     return 0;
 }
 
-float conversor_volume(float valor, char unidade_inicial, char unidade_final) {
-    if (unidade_inicial == 'l' && unidade_final == 'm') {
+float conversor_volume(float valor, int unidade_inicial, int unidade_final) {
+    if (unidade_inicial == 1 && unidade_final == 2) {
         return valor * 1000; // Litros para mililitros
-    } else if (unidade_inicial == 'l' && unidade_final == 'M') {
+    } else if (unidade_inicial == 1 && unidade_final == 3) {
         return valor / 1000; // Litros para metros cúbicos
-    } else if (unidade_inicial == 'm' && unidade_final == 'l') {
+    } else if (unidade_inicial == 2 && unidade_final == 1) {
         return valor / 1000; // Mililitros para litros
-    } else if (unidade_inicial == 'm' && unidade_final == 'M') {
+    } else if (unidade_inicial == 2 && unidade_final == 3) {
         return valor / 1000000; // Mililitros para metros cúbicos
-    } else if (unidade_inicial == 'M' && unidade_final == 'l') {
+    } else if (unidade_inicial == 3 && unidade_final == 1) {
         return valor * 1000; // Metros cúbicos para litros
     } else if (unidade_inicial == unidade_final) {
         return valor; // Mesma unidade
@@ -48,11 +51,11 @@ float conversor_volume(float valor, char unidade_inicial, char unidade_final) {
     }
 }
 
-const char* obter_nome_unidade(char unidade) {
+const char* obter_nome_unidade(int unidade) {
     switch (unidade) {
-        case 'l': return "litros";
-        case 'm': return "mililitros";
-        case 'M': return "metros cúbicos";
+        case 1: return "litros";
+        case 2: return "mililitros";
+        case 3: return "metros cúbicos";
         default: return "unidade desconhecida";
     }
 }
