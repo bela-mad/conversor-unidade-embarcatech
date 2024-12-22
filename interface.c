@@ -108,7 +108,7 @@ int executar_menu() {
             executar_submenu("Unidades de Volume", "Litro", "Mililitro", "Metros cubicos", NULL, NULL, NULL, conversor_volume);
             break;
         case 4:
-            executar_submenu("Unidades de Temperatura", "Celsius", "Fahrenheit", "Kelvin", NULL, NULL, NULL, temp);
+            executar_submenu("Unidades de Temperatura", "Celsius", "Fahrenheit", "Kelvin", NULL, NULL, NULL, Converter_Temperatura);
             break;
         case 5:
             executar_submenu("Unidades de Velocidade", "km/h", "m/s", "mph", NULL, NULL, NULL, temp);
