@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "funcoes.h"
+#include "interface.h"
 
 int submenu(const char *unidade1, const char *unidade2, const char *unidade3, const char *unidade4, const char *unidade5, const char *unidade6) {
     int opcao;
@@ -118,7 +120,7 @@ int executar_menu() {
             executar_submenu("Unidades de Area", "Metro quadrado", "Centimetro quadrado", "Milimetro quadrado", NULL, NULL, NULL, temp);
             break;
         case 8:
-            executar_submenu("Unidades de Tempo", "Segundos", "Minutos", "Horas", NULL, NULL, NULL, temp);
+            executar_submenu("Unidades de Tempo", "Segundos", "Minutos", "Horas", NULL, NULL, NULL, conversor_tempo);
             break;
         case 9:
             executar_submenu("Unidades de Armazenamento", "Bits", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", temp);

@@ -1,3 +1,4 @@
+#include "funcoes.h"
 
 float conversor_volume(float valor, int unidade_inicial, int unidade_final) {
     if (unidade_inicial == 1 && unidade_final == 2) {
@@ -15,4 +16,14 @@ float conversor_volume(float valor, int unidade_inicial, int unidade_final) {
     } else {
         return -1; // Indica erro ou unidade inválida
     }
+}
+
+float conversor_tempo(float valor, int unidade_inicial, int unidade_final) {
+    // Fatores de conversão para tempo
+    int time_factors[] = {1, 60, 3600};
+
+    // Cáuculo da conversão de tudo para segundos, e depois voltando para o tempo desejado
+    return valor * time_factors[unidade_inicial - 1] / time_factors[unidade_final - 1];
+
+    // Não fiz verificação para indices inválidos, pois a interface já faz isso
 }
