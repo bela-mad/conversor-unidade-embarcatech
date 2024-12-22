@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-float conversor_velocidade(float valor, int unidade_inicial, int unidade_final);{
+float conversor_velocidade(float valor, int unidade_inicial, int unidade_final);
 const char* obter_nome_unidade_velocidade(int unidade);
 
 int main() {
@@ -60,5 +60,4 @@ const char* obter_nome_unidade_velocidade(int unidade) {
         case 3: return "milhas por hora (mph)";
         default: return "unidade desconhecida";
     }
-}
 }
