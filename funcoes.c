@@ -86,3 +86,15 @@ float Converter_Temperatura(float temperatura_inicial, int opcao_entrada, int op
         break;
     }
 }
+
+float conversor_armazenamento(float valor, int unidade_inicial, int unidade_final) {
+    const long long fator[6] = {1, 8, 8 * 1024, 8 * 1024 * 1024, 8 * 1024 * 1024LL * 1024, 8 * 1024 * 1024LL * 1024 * 1024};
+    
+    if (unidade_inicial < 1 || unidade_inicial > 6 || unidade_final < 1 || unidade_final > 6) {
+        return -1;
+    }
+
+   
+    float em_bits = valor * fator[unidade_inicial - 1];
+    return em_bits / fator[unidade_final - 1];
+}
