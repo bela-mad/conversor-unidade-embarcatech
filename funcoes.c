@@ -1,23 +1,5 @@
 #include "funcoes.h"
 
-float conversor_volume(float valor, int unidade_inicial, int unidade_final) {
-    if (unidade_inicial == 1 && unidade_final == 2) {
-        return valor * 1000; // Litros para mililitros
-    } else if (unidade_inicial == 1 && unidade_final == 3) {
-        return valor / 1000; // Litros para metros cúbicos
-    } else if (unidade_inicial == 2 && unidade_final == 1) {
-        return valor / 1000; // Mililitros para litros
-    } else if (unidade_inicial == 2 && unidade_final == 3) {
-        return valor / 1000000; // Mililitros para metros cúbicos
-    } else if (unidade_inicial == 3 && unidade_final == 1) {
-        return valor * 1000; // Metros cúbicos para litros
-    } else if (unidade_inicial == unidade_final) {
-        return valor; // Mesma unidade
-    } else {
-        return -1; // Indica erro ou unidade inválida
-    }
-}
-
 float Converter_Temperatura(float temperatura_inicial, int opcao_entrada, int opcao_final)
 {
 
@@ -87,6 +69,134 @@ float Converter_Temperatura(float temperatura_inicial, int opcao_entrada, int op
         break;
     }
 }
+
+// Velocidade
+float Converter_Velocidade(float velocidade_inicial, int opcao_entrada, int opcao_final) {
+    float velocidade_final;
+    switch (opcao_entrada) {
+        case 1: // Entrada em km/h
+            if (opcao_final == 1) {
+                velocidade_final = velocidade_inicial;
+            } else if (opcao_final == 2) {
+                velocidade_final = velocidade_inicial / 3.6;
+            } else if (opcao_final == 3) {
+                velocidade_final = velocidade_inicial / 1.60934;
+            } else {
+                return 0; // Retorna 0 para indicar erro
+            }
+            break;
+        case 2: // Entrada em m/s
+            if (opcao_final == 1) {
+                velocidade_final = velocidade_inicial * 3.6;
+            } else if (opcao_final == 2) {
+                velocidade_final = velocidade_inicial;
+            } else if (opcao_final == 3) {
+                velocidade_final = velocidade_inicial * 2.23694;
+            } else {
+                return 0;
+            }
+            break;
+        case 3: // Entrada em mph
+            if (opcao_final == 1) {
+                velocidade_final = velocidade_inicial * 1.60934;
+            } else if (opcao_final == 2) {
+                velocidade_final = velocidade_inicial / 2.23694;
+            } else if (opcao_final == 3) {
+                velocidade_final = velocidade_inicial;
+            } else {
+                return 0;
+            }
+            break;
+        default:
+            return 0; // Retorna 0 para indicar erro
+    }
+    return velocidade_final;
+}
+
+// Volume
+float Converter_Volume(float volume_inicial, int opcao_entrada, int opcao_final) {
+    float volume_final;
+    switch (opcao_entrada) {
+        case 1: // Litros
+            if (opcao_final == 1) {
+                volume_final = volume_inicial;
+            } else if (opcao_final == 2) {
+                volume_final = volume_inicial * 1000;
+            } else if (opcao_final == 3) {
+                volume_final = volume_inicial / 1000;
+            } else {
+                return 0;
+            }
+            break;
+        case 2: // Mililitros
+            if (opcao_final == 1) {
+                volume_final = volume_inicial / 1000;
+            } else if (opcao_final == 2) {
+                volume_final = volume_inicial;
+            } else if (opcao_final == 3) {
+                volume_final = volume_inicial / 1000000;
+            } else {
+                return 0;
+            }
+            break;
+        case 3: // Metros cúbicos
+            if (opcao_final == 1) {
+                volume_final = volume_inicial * 1000;
+            } else if (opcao_final == 2) {
+                volume_final = volume_inicial * 1000000;
+            } else if (opcao_final == 3) {
+                volume_final = volume_inicial;
+            } else {
+                return 0;
+            }
+            break;
+        default:
+            return 0;
+    }
+    return volume_final;
+}
+
+// Potencia
+float Converter_Potencia(float potencia_inicial, int opcao_entrada, int opcao_final) {
+    float potencia_final;
+    switch (opcao_entrada) {
+        case 1: // Watts
+            if (opcao_final == 1) {
+                potencia_final = potencia_inicial;
+            } else if (opcao_final == 2) {
+                potencia_final = potencia_inicial / 1000;
+            } else if (opcao_final == 3) {
+                potencia_final = potencia_inicial / 735.5;
+            } else {
+                return 0;
+            }
+            break;
+        case 2: // Quilowatts
+            if (opcao_final == 1) {
+                potencia_final = potencia_inicial * 1000;
+            } else if (opcao_final == 2) {
+                potencia_final = potencia_inicial;
+            } else if (opcao_final == 3) {
+                potencia_final = (potencia_inicial * 1000) / 735.5;
+            } else {
+                return 0;
+            }
+            break;
+        case 3: // Cavalos-vapor
+            if (opcao_final == 1) {
+                potencia_final = potencia_inicial * 735.5;
+            } else if (opcao_final == 2) {
+                potencia_final = (potencia_inicial * 735.5) / 1000;
+            } else if (opcao_final == 3) {
+                potencia_final = potencia_inicial;
+            } else {
+                return 0;
+            }
+            break;
+        default:
+            return 0;
+    }
+    return potencia_final;
 
 float conversor_tempo(float valor, int unidade_inicial, int unidade_final) {
     // Fatores de conversão para tempo
