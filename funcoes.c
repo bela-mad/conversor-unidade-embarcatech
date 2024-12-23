@@ -1,3 +1,4 @@
+#include "funcoes.h"
 
 float Converter_Temperatura(float temperatura_inicial, int opcao_entrada, int opcao_final)
 {
@@ -68,10 +69,8 @@ float Converter_Temperatura(float temperatura_inicial, int opcao_entrada, int op
         break;
     }
 }
+
 // Velocidade
-
-#include <stdio.h> 
-
 float Converter_Velocidade(float velocidade_inicial, int opcao_entrada, int opcao_final) {
     float velocidade_final;
     switch (opcao_entrada) {
@@ -115,9 +114,6 @@ float Converter_Velocidade(float velocidade_inicial, int opcao_entrada, int opca
 }
 
 // Volume
-
-#include <stdio.h>
-
 float Converter_Volume(float volume_inicial, int opcao_entrada, int opcao_final) {
     float volume_final;
     switch (opcao_entrada) {
@@ -161,9 +157,6 @@ float Converter_Volume(float volume_inicial, int opcao_entrada, int opcao_final)
 }
 
 // Potencia
-
-#include <stdio.h>
-
 float Converter_Potencia(float potencia_inicial, int opcao_entrada, int opcao_final) {
     float potencia_final;
     switch (opcao_entrada) {
@@ -204,4 +197,13 @@ float Converter_Potencia(float potencia_inicial, int opcao_entrada, int opcao_fi
             return 0;
     }
     return potencia_final;
+
+float conversor_tempo(float valor, int unidade_inicial, int unidade_final) {
+    // Fatores de conversão para tempo
+    int time_factors[] = {1, 60, 3600};
+
+    // Cáuculo da conversão de tudo para segundos, e depois voltando para o tempo desejado
+    return valor * time_factors[unidade_inicial - 1] / time_factors[unidade_final - 1];
+
+    // Não fiz verificação para indices inválidos, pois a interface já faz isso
 }
