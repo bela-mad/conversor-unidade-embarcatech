@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "funcoes.h"
 #include "interface.h"
 
@@ -66,7 +65,6 @@ void executar_submenu(const char *nome_categoria,
            (destino == 5 ? unidade5 : unidade6)))));
 }
 
-
 void exibir_interface() {
     system("cls");
     puts("##############################");
@@ -85,7 +83,7 @@ void exibir_interface() {
     puts("------------------------------");
 }
 
-float temp (float valor, int unidade_inicial, int unidade_final){
+float temp (float valor, int unidade_inicial, int unidade_final) {
     return 0;
 }
 
@@ -102,25 +100,25 @@ int executar_menu() {
             executar_submenu("Unidades de Comprimento", "Metro", "Centimetro", "Milimetro", NULL, NULL, NULL, temp);
             break;
         case 2: 
-            executar_submenu("Unidades de Massa", "Grama", "Quilograma", "Tonelada", NULL, NULL, NULL, conversor_massa); 
+            executar_submenu("Unidades de Massa", "Grama", "Quilograma", "Tonelada", NULL, NULL, NULL, converte_massa); 
             break;
         case 3:
-            executar_submenu("Unidades de Volume", "Litro", "Mililitro", "Metros cubicos", NULL, NULL, NULL, conversor_volume);
+            executar_submenu("Unidades de Volume", "Litro", "Mililitro", "Metros cubicos", NULL, NULL, NULL, converte_volume);
             break;
         case 4:
-            executar_submenu("Unidades de Temperatura", "Celsius", "Fahrenheit", "Kelvin", NULL, NULL, NULL, Converter_Temperatura);
+            executar_submenu("Unidades de Temperatura", "Celsius", "Fahrenheit", "Kelvin", NULL, NULL, NULL, converte_temperatura);
             break;
         case 5:
-            executar_submenu("Unidades de Velocidade", "km/h", "m/s", "mph", NULL, NULL, NULL, temp);
+            executar_submenu("Unidades de Velocidade", "km/h", "m/s", "mph", NULL, NULL, NULL, converte_velocidade);
             break;
         case 6:
-            executar_submenu("Unidades de Potencia", "Watts", "Quilowatts", "Cavalos-vapor", NULL, NULL, NULL, temp);
+            executar_submenu("Unidades de Potencia", "Watts", "Quilowatts", "Cavalos-vapor", NULL, NULL, NULL, converte_potencia);
             break;
         case 7:
             executar_submenu("Unidades de Area", "Metro quadrado", "Centimetro quadrado", "Milimetro quadrado", NULL, NULL, NULL, temp);
             break;
         case 8:
-            executar_submenu("Unidades de Tempo", "Segundos", "Minutos", "Horas", NULL, NULL, NULL, conversor_tempo);
+            executar_submenu("Unidades de Tempo", "Segundos", "Minutos", "Horas", NULL, NULL, NULL, converte_tempo);
             break;
         case 9:
             executar_submenu("Unidades de Armazenamento", "Bits", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", temp);
