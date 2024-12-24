@@ -121,7 +121,7 @@ int executar_menu() {
             executar_submenu("Unidades de Tempo", "Segundos", "Minutos", "Horas", NULL, NULL, NULL, converte_tempo);
             break;
         case 9:
-            executar_submenu("Unidades de Armazenamento", "Bits", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", temp);
+            executar_submenu("Unidades de Armazenamento", "Bits", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", converte_armazenamento);
             break;
         case 0:
             printf("Saindo... Obrigado!\n");

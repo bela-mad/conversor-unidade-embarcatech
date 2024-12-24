@@ -145,7 +145,7 @@ float converte_velocidade(float velocidade_inicial, int opcao_entrada, int opcao
 }
 
 // Massa
-float conversor_massa(float valor, int unidade_inicial, int unidade_final) {
+float converte_massa(float valor, int unidade_inicial, int unidade_final) {
     if (unidade_inicial == 1 && unidade_final == 2) {
         return valor / 1000; // Gramas para quilogramas
     } else if (unidade_inicial == 1 && unidade_final == 3) {
