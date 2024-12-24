@@ -22,4 +22,7 @@ float converte_tempo(float valor, int unidade_inicial, int unidade_final);
 // Declaração da função converte_armazenamento
 float converte_armazenamento(float valor, int unidade_inicial, int unidade_final);
 
+// Declaração da função 
+float converter(float valor, char tipoConversao);
+
 #endif // FUNCOES_H
