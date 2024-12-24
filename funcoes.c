@@ -208,6 +208,26 @@ float converte_potencia(float potencia_inicial, int opcao_entrada, int opcao_fin
     return potencia_final;
 }
 
+// Área
+float converte_area(float valor, char area) {
+    switch (area) {
+        case '1':  // metros para outras unidades
+            return valor * 10000;      // metros para centimetros
+        case '2':  // metros para milimetros
+            return valor * 1000000;    // metros para milimetros
+        case '3':  // centimetros para metros
+            return valor / 10000;      // centimetros para metros
+        case '4':  // centimetros para milimetros
+            return valor * 100;        // centimetros para milimetros
+        case '5':  // milimetros para metros
+            return valor / 1000000;    // milimetros para metros
+        case '6':  // milimetros para centimetros
+            return valor / 100;        // milimetros para centimetros
+        default:
+            return -1;  // Retorna -1 se a conversão não for válida
+    }
+}
+
 // Tempo
 float converte_tempo(float valor, int unidade_inicial, int unidade_final) {
     // Fatores de conversão para tempo
