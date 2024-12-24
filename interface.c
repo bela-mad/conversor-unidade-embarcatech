@@ -99,8 +99,8 @@ int executar_menu() {
         case 1:
             executar_submenu("Unidades de Comprimento", "Metro", "Centimetro", "Milimetro", NULL, NULL, NULL, temp);
             break;
-        case 2:
-            executar_submenu("Unidades de Massa", "Quilograma", "Grama", "Tonelada", NULL, NULL, NULL, temp);
+        case 2: 
+            executar_submenu("Unidades de Massa", "Grama", "Quilograma", "Tonelada", NULL, NULL, NULL, converte_massa); 
             break;
         case 3:
             executar_submenu("Unidades de Volume", "Litro", "Mililitro", "Metros cubicos", NULL, NULL, NULL, converte_volume);
@@ -121,7 +121,7 @@ int executar_menu() {
             executar_submenu("Unidades de Tempo", "Segundos", "Minutos", "Horas", NULL, NULL, NULL, converte_tempo);
             break;
         case 9:
-            executar_submenu("Unidades de Armazenamento", "Bits", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", temp);
+            executar_submenu("Unidades de Armazenamento", "Bits", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", converte_armazenamento);
             break;
         case 0:
             printf("Saindo... Obrigado!\n");

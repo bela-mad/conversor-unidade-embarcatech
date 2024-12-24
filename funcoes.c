@@ -144,6 +144,27 @@ float converte_velocidade(float velocidade_inicial, int opcao_entrada, int opcao
     return velocidade_final;
 }
 
+// Massa
+float converte_massa(float valor, int unidade_inicial, int unidade_final) {
+    if (unidade_inicial == 1 && unidade_final == 2) {
+        return valor / 1000; // Gramas para quilogramas
+    } else if (unidade_inicial == 1 && unidade_final == 3) {
+        return valor / 1000000; // Gramas para toneladas
+    } else if (unidade_inicial == 2 && unidade_final == 1) {
+        return valor * 1000; // Quilogramas para gramas
+    } else if (unidade_inicial == 2 && unidade_final == 3) {
+        return valor / 1000; // Quilogramas para toneladas
+    } else if (unidade_inicial == 3 && unidade_final == 1) {
+        return valor * 1000000; // Toneladas para gramas
+    } else if (unidade_inicial == 3 && unidade_final == 2) {
+        return valor * 1000; // Toneladas para quilogramas
+    } else if (unidade_inicial == unidade_final) {
+        return valor; // Mesma unidade
+    } else {
+        return -1; // Indica erro ou unidade inválida
+    }
+}
+
 // Potência
 float converte_potencia(float potencia_inicial, int opcao_entrada, int opcao_final) {
     float potencia_final;
