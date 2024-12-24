@@ -16,4 +16,7 @@ float converte_potencia(float potencia_inicial, int opcao_entrada, int opcao_fin
 // Declaração da função converte_velocidade
 float converte_velocidade(float velocidade_inicial, int opcao_entrada, int opcao_final);
 
+// Declaração da função converte_armazenamento
+float converte_armazenamento(float valor, int unidade_inicial, int unidade_final);
+
 #endif // FUNCOES_H
