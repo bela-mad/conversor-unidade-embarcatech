@@ -250,3 +250,16 @@ float converte_armazenamento(float valor, int unidade_inicial, int unidade_final
     float em_bits = valor * fator[unidade_inicial - 1];
     return em_bits / fator[unidade_final - 1];
 }
+// Comprimento
+float converte_comprimento(float valor, int unidade_inicial, int unidade_final) {
+    // Tabela de fatores de conversão para metro
+    float fatores[] = {1, 1000, 100, 0.001}; // Metro, Milímetro, Centímetro, Quilômetro
+
+    if (unidade_inicial < 1 || unidade_inicial > 4 || unidade_final < 1 || unidade_final > 4) {
+        return -1; // Retorna -1 para unidades inválidas
+    }
+
+    // Converte para metros e depois para a unidade final
+    float em_metros = valor / fatores[unidade_inicial - 1];
+    return em_metros * fatores[unidade_final - 1];
+}
