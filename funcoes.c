@@ -244,23 +244,30 @@ float converte_potencia(float potencia_inicial, int opcao_entrada, int opcao_fin
 }
 
 // Área
-float converte_area(float valor, char area) {
-    switch (area) {
-        case '1':  // metros para outras unidades
-            return valor * 10000;      // metros para centimetros
-        case '2':  // metros para milimetros
-            return valor * 1000000;    // metros para milimetros
-        case '3':  // centimetros para metros
-            return valor / 10000;      // centimetros para metros
-        case '4':  // centimetros para milimetros
-            return valor * 100;        // centimetros para milimetros
-        case '5':  // milimetros para metros
-            return valor / 1000000;    // milimetros para metros
-        case '6':  // milimetros para centimetros
-            return valor / 100;        // milimetros para centimetros
-        default:
-            return -1;  // Retorna -1 se a conversão não for válida
+float converte_area(float valor, int unidade_inicial, int unidade_final) {
+    if (unidade_inicial == unidade_final) {
+        return valor; // Mesma unidade, retorna o valor original
     }
+    
+    // Metros quadrados para outras unidades
+    if (unidade_inicial == 1) {
+        if (unidade_final == 2) return valor * 10000; // Metros² para Centímetros²
+        if (unidade_final == 3) return valor * 1000000; // Metros² para Milímetros²
+    }
+    
+    // Centímetros quadrados para outras unidades
+    if (unidade_inicial == 2) {
+        if (unidade_final == 1) return valor / 10000; // Centímetros² para Metros²
+        if (unidade_final == 3) return valor * 100; // Centímetros² para Milímetros²
+    }
+    
+    // Milímetros quadrados para outras unidades
+    if (unidade_inicial == 3) {
+        if (unidade_final == 1) return valor / 1000000; // Milímetros² para Metros²
+        if (unidade_final == 2) return valor / 100; // Milímetros² para Centímetros²
+    }
+
+    return -1; // Se as unidades forem inválidas ou não houver conversão
 }
 
 // Tempo
