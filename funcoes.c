@@ -1,6 +1,41 @@
 #include "funcoes.h"
 #include <stdio.h>
 
+// Comprimento
+float converte_comprimento(float valor, int unidade_inicial, int unidade_final) {
+    // Tabela de fatores de conversão para metro
+    float fatores[] = {1, 100, 1000}; // Metro, Centímetro, Milímetro
+
+    if (unidade_inicial < 1 || unidade_inicial > 4 || unidade_final < 1 || unidade_final > 4) {
+        return -1; // Retorna -1 para unidades inválidas
+    }
+
+    // Converte para metros e depois para a unidade final
+    float em_metros = valor / fatores[unidade_inicial - 1];
+    return em_metros * fatores[unidade_final - 1];
+}
+
+// Massa
+float converte_massa(float valor, int unidade_inicial, int unidade_final) {
+    if (unidade_inicial == 1 && unidade_final == 2) {
+        return valor / 1000; // Gramas para quilogramas
+    } else if (unidade_inicial == 1 && unidade_final == 3) {
+        return valor / 1000000; // Gramas para toneladas
+    } else if (unidade_inicial == 2 && unidade_final == 1) {
+        return valor * 1000; // Quilogramas para gramas
+    } else if (unidade_inicial == 2 && unidade_final == 3) {
+        return valor / 1000; // Quilogramas para toneladas
+    } else if (unidade_inicial == 3 && unidade_final == 1) {
+        return valor * 1000000; // Toneladas para gramas
+    } else if (unidade_inicial == 3 && unidade_final == 2) {
+        return valor * 1000; // Toneladas para quilogramas
+    } else if (unidade_inicial == unidade_final) {
+        return valor; // Mesma unidade
+    } else {
+        return -1; // Indica erro ou unidade inválida
+    }
+}
+
 // Volume
 float converte_volume(float volume_inicial, int opcao_entrada, int opcao_final) {
     float volume_final;
@@ -144,27 +179,6 @@ float converte_velocidade(float velocidade_inicial, int opcao_entrada, int opcao
     return velocidade_final;
 }
 
-// Massa
-float converte_massa(float valor, int unidade_inicial, int unidade_final) {
-    if (unidade_inicial == 1 && unidade_final == 2) {
-        return valor / 1000; // Gramas para quilogramas
-    } else if (unidade_inicial == 1 && unidade_final == 3) {
-        return valor / 1000000; // Gramas para toneladas
-    } else if (unidade_inicial == 2 && unidade_final == 1) {
-        return valor * 1000; // Quilogramas para gramas
-    } else if (unidade_inicial == 2 && unidade_final == 3) {
-        return valor / 1000; // Quilogramas para toneladas
-    } else if (unidade_inicial == 3 && unidade_final == 1) {
-        return valor * 1000000; // Toneladas para gramas
-    } else if (unidade_inicial == 3 && unidade_final == 2) {
-        return valor * 1000; // Toneladas para quilogramas
-    } else if (unidade_inicial == unidade_final) {
-        return valor; // Mesma unidade
-    } else {
-        return -1; // Indica erro ou unidade inválida
-    }
-}
-
 // Potência
 float converte_potencia(float potencia_inicial, int opcao_entrada, int opcao_final) {
     float potencia_final;
@@ -249,17 +263,4 @@ float converte_armazenamento(float valor, int unidade_inicial, int unidade_final
    
     float em_bits = valor * fator[unidade_inicial - 1];
     return em_bits / fator[unidade_final - 1];
-}
-// Comprimento
-float converte_comprimento(float valor, int unidade_inicial, int unidade_final) {
-    // Tabela de fatores de conversão para metro
-    float fatores[] = {1, 1000, 100, 0.001}; // Metro, Milímetro, Centímetro, Quilômetro
-
-    if (unidade_inicial < 1 || unidade_inicial > 4 || unidade_final < 1 || unidade_final > 4) {
-        return -1; // Retorna -1 para unidades inválidas
-    }
-
-    // Converte para metros e depois para a unidade final
-    float em_metros = valor / fatores[unidade_inicial - 1];
-    return em_metros * fatores[unidade_final - 1];
 }
