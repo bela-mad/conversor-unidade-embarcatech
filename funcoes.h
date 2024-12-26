@@ -22,4 +22,7 @@ float converte_tempo(float valor, int unidade_inicial, int unidade_final);
 // Declaração da função converte_armazenamento
 float converte_armazenamento(float valor, int unidade_inicial, int unidade_final);
 
+// Declaração da função converte_comprimento
+float converte_comprimento(float valor, int unidade_inicial, int unidade_final);
+
 #endif // FUNCOES_H
