@@ -115,7 +115,7 @@ int executar_menu() {
             executar_submenu("Unidades de Potencia", "Watts", "Quilowatts", "Cavalos-vapor", NULL, NULL, NULL, converte_potencia);
             break;
         case 7:
-            executar_submenu("Unidades de Area", "Metro quadrado", "Centimetro quadrado", "Milimetro quadrado", NULL, NULL, NULL, temp);
+            executar_submenu("Unidades de Area", "Metro quadrado", "Centimetro quadrado", "Milimetro quadrado", NULL, NULL, NULL, converte_area);
             break;
         case 8:
             executar_submenu("Unidades de Tempo", "Segundos", "Minutos", "Horas", NULL, NULL, NULL, converte_tempo);
