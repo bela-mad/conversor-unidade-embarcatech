@@ -18,19 +18,19 @@ float converte_comprimento(float valor, int unidade_inicial, int unidade_final) 
 // Massa
 float converte_massa(float valor, int unidade_inicial, int unidade_final) {
     if (unidade_inicial == 1 && unidade_final == 2) {
-        return valor / 1000; // Gramas para quilogramas
+        return valor / 1000; // Gramas para Quilogramas
     } else if (unidade_inicial == 1 && unidade_final == 3) {
-        return valor / 1000000; // Gramas para toneladas
+        return valor / 1000000; // Gramas para Toneladas
     } else if (unidade_inicial == 2 && unidade_final == 1) {
-        return valor * 1000; // Quilogramas para gramas
+        return valor * 1000; // Quilogramas para Gramas
     } else if (unidade_inicial == 2 && unidade_final == 3) {
-        return valor / 1000; // Quilogramas para toneladas
+        return valor / 1000; // Quilogramas para Toneladas
     } else if (unidade_inicial == 3 && unidade_final == 1) {
-        return valor * 1000000; // Toneladas para gramas
+        return valor * 1000000; // Toneladas para Gramas
     } else if (unidade_inicial == 3 && unidade_final == 2) {
-        return valor * 1000; // Toneladas para quilogramas
+        return valor * 1000; // Toneladas para Quilogramas
     } else if (unidade_inicial == unidade_final) {
-        return valor; // Mesma unidade
+        return valor; // Mesma Unidade
     } else {
         return -1; // Indica erro ou unidade inválida
     }
@@ -179,27 +179,6 @@ float converte_velocidade(float velocidade_inicial, int opcao_entrada, int opcao
     return velocidade_final;
 }
 
-// Massa
-float converte_massa(float valor, int unidade_inicial, int unidade_final) {
-    if (unidade_inicial == 1 && unidade_final == 2) {
-        return valor / 1000; // Gramas para Quilogramas
-    } else if (unidade_inicial == 1 && unidade_final == 3) {
-        return valor / 1000000; // Gramas para Toneladas
-    } else if (unidade_inicial == 2 && unidade_final == 1) {
-        return valor * 1000; // Quilogramas para Gramas
-    } else if (unidade_inicial == 2 && unidade_final == 3) {
-        return valor / 1000; // Quilogramas para Toneladas
-    } else if (unidade_inicial == 3 && unidade_final == 1) {
-        return valor * 1000000; // Toneladas para Gramas
-    } else if (unidade_inicial == 3 && unidade_final == 2) {
-        return valor * 1000; // Toneladas para Quilogramas
-    } else if (unidade_inicial == unidade_final) {
-        return valor; // Mesma Unidade
-    } else {
-        return -1; // Indica erro ou unidade inválida
-    }
-}
-
 // Potência
 float converte_potencia(float potencia_inicial, int opcao_entrada, int opcao_final) {
     float potencia_final;
@@ -278,7 +257,7 @@ float converte_tempo(float valor, int unidade_inicial, int unidade_final) {
     // Cálculo da conversão de tudo para segundos, e depois voltando para o tempo desejado
     return valor * time_factors[unidade_inicial - 1] / time_factors[unidade_final - 1];
 
-    // Não fiz verificação para indices inválidos, pois a interface já faz isso
+    // Não há verificação para indices inválidos, pois a interface já faz isso
 }
 
 // Armazenamento
