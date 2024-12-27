@@ -22,11 +22,13 @@ float converte_area(float valor, int unidade_inicial, int unidade_final);
 // Declaração da função converte_potencia
 float converte_potencia(float potencia_inicial, int opcao_entrada, int opcao_final);
 
+// Declaração da função converte_area
+float converte_area(float valor, int unidade_inicial, int unidade_final);
+
 // Declaração da função converte_tempo
 float converte_tempo(float valor, int unidade_inicial, int unidade_final);
 
 // Declaração da função converte_armazenamento
 float converte_armazenamento(float valor, int unidade_inicial, int unidade_final);
-
 
 #endif // FUNCOES_H
