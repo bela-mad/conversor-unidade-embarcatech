@@ -1,6 +1,41 @@
 #include "funcoes.h"
 #include <stdio.h>
 
+// Comprimento
+float converte_comprimento(float valor, int unidade_inicial, int unidade_final) {
+    // Tabela de fatores de conversão para metro
+    float fatores[] = {1, 100, 1000}; // Metro, Centímetro, Milímetro
+
+    if (unidade_inicial < 1 || unidade_inicial > 4 || unidade_final < 1 || unidade_final > 4) {
+        return -1; // Retorna -1 para unidades inválidas
+    }
+
+    // Converte para metros e depois para a unidade final
+    float em_metros = valor / fatores[unidade_inicial - 1];
+    return em_metros * fatores[unidade_final - 1];
+}
+
+// Massa
+float converte_massa(float valor, int unidade_inicial, int unidade_final) {
+    if (unidade_inicial == 1 && unidade_final == 2) {
+        return valor / 1000; // Gramas para quilogramas
+    } else if (unidade_inicial == 1 && unidade_final == 3) {
+        return valor / 1000000; // Gramas para toneladas
+    } else if (unidade_inicial == 2 && unidade_final == 1) {
+        return valor * 1000; // Quilogramas para gramas
+    } else if (unidade_inicial == 2 && unidade_final == 3) {
+        return valor / 1000; // Quilogramas para toneladas
+    } else if (unidade_inicial == 3 && unidade_final == 1) {
+        return valor * 1000000; // Toneladas para gramas
+    } else if (unidade_inicial == 3 && unidade_final == 2) {
+        return valor * 1000; // Toneladas para quilogramas
+    } else if (unidade_inicial == unidade_final) {
+        return valor; // Mesma unidade
+    } else {
+        return -1; // Indica erro ou unidade inválida
+    }
+}
+
 // Volume
 float converte_volume(float volume_inicial, int opcao_entrada, int opcao_final) {
     float volume_final;
@@ -147,19 +182,19 @@ float converte_velocidade(float velocidade_inicial, int opcao_entrada, int opcao
 // Massa
 float converte_massa(float valor, int unidade_inicial, int unidade_final) {
     if (unidade_inicial == 1 && unidade_final == 2) {
-        return valor / 1000; // Gramas para quilogramas
+        return valor / 1000; // Gramas para Quilogramas
     } else if (unidade_inicial == 1 && unidade_final == 3) {
-        return valor / 1000000; // Gramas para toneladas
+        return valor / 1000000; // Gramas para Toneladas
     } else if (unidade_inicial == 2 && unidade_final == 1) {
-        return valor * 1000; // Quilogramas para gramas
+        return valor * 1000; // Quilogramas para Gramas
     } else if (unidade_inicial == 2 && unidade_final == 3) {
-        return valor / 1000; // Quilogramas para toneladas
+        return valor / 1000; // Quilogramas para Toneladas
     } else if (unidade_inicial == 3 && unidade_final == 1) {
-        return valor * 1000000; // Toneladas para gramas
+        return valor * 1000000; // Toneladas para Gramas
     } else if (unidade_inicial == 3 && unidade_final == 2) {
-        return valor * 1000; // Toneladas para quilogramas
+        return valor * 1000; // Toneladas para Quilogramas
     } else if (unidade_inicial == unidade_final) {
-        return valor; // Mesma unidade
+        return valor; // Mesma Unidade
     } else {
         return -1; // Indica erro ou unidade inválida
     }
@@ -235,7 +270,6 @@ float converte_area(float valor, int unidade_inicial, int unidade_final) {
     return -1; // Se as unidades forem inválidas ou não houver conversão
 }
 
-
 // Tempo
 float converte_tempo(float valor, int unidade_inicial, int unidade_final) {
     // Fatores de conversão para tempo
@@ -249,12 +283,9 @@ float converte_tempo(float valor, int unidade_inicial, int unidade_final) {
 
 // Armazenamento
 float converte_armazenamento(float valor, int unidade_inicial, int unidade_final) {
-    const long long fator[6] = {1, 8, 8 * 1024, 8 * 1024 * 1024, 8 * 1024 * 1024LL * 1024, 8 * 1024 * 1024LL * 1024 * 1024};
-    
-    if (unidade_inicial < 1 || unidade_inicial > 6 || unidade_final < 1 || unidade_final > 6) {
-        return -1;
-    }
-   
+    const float fator[6] = {1, 8, 8 * 1024, 8 * 1024 * 1024, 8 * 1024 * 1024LL * 1024, 8 * 1024 * 1024LL * 1024 * 1024};
+
+    // Converte para bits, depois para a unidade desejada   
     float em_bits = valor * fator[unidade_inicial - 1];
     return em_bits / fator[unidade_final - 1];
 }

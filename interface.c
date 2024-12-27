@@ -97,7 +97,7 @@ int executar_menu() {
 
     switch (opcao) {
         case 1:
-            executar_submenu("Unidades de Comprimento", "Metro", "Centimetro", "Milimetro", NULL, NULL, NULL, temp);
+            executar_submenu("Unidades de Comprimento", "Metro", "Centimetro", "Milimetro", NULL, NULL, NULL, converte_comprimento);
             break;
         case 2: 
             executar_submenu("Unidades de Massa", "Grama", "Quilograma", "Tonelada", NULL, NULL, NULL, converte_massa); 
