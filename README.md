@@ -18,7 +18,7 @@
 4. Unidades de temperatura (Celsius, Fahrenheit, Kelvin)
 5. Unidades de velocidade (km/h, m/s, mph)
 6. Potência (watts (W), quilowatts (kW), cavalos-vapor (cv ou hp))
-7. Unidades de área (metro quadrado, centímetro quadrado)
+7. Unidades de área (metro quadrado, centímetro quadrado, milímetro quadrado)
 8. Unidades de tempo (segundos, minutos, horas)
 9. Armazenamento (bits, bytes, kilobytes (KB), megabytes (MB), gigabytes (GB), terabytes (TB))
 
